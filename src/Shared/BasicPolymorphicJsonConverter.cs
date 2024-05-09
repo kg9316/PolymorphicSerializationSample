@@ -26,7 +26,7 @@ public class BasicPolymorphicJsonConverter<T> : JsonConverter<T> where T : IType
         }
 
         using var jsonDocument = JsonDocument.ParseValue(ref reader);
-        if (!jsonDocument.RootElement.TryGetProperty("type", out var typeProperty))
+        if (!jsonDocument.RootElement.TryGetProperty("Type", out var typeProperty))
         {
             throw new JsonException();
         }

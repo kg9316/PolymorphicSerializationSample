@@ -43,7 +43,7 @@ public class TweakedPolymorphicJsonConverter<T> : JsonConverter<T> where T : ITy
             }
 
             var propertyName = readerClone.GetString();
-            if (propertyName == "type")
+            if (propertyName == "Type")
             {
                 readerClone.Read();
                 var discriminator = readerClone.GetString();

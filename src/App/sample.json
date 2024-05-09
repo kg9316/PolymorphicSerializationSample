@@ -1,12 +1,27 @@
 ﻿[
   {
-    "type": "A",
-    "someSharedProperty": 123,
-    "someASpecificProperty": 456
+    "Type": "A",
+    "SomeSharedProperty": 1,
+    "SomeASpecificProperty": 2
   },
   {
-    "type": "B",
-    "someSharedProperty": 789,
-    "someBSpecificProperty": 101112
-  }
+    "Type": "B",
+    "SomeSharedProperty": 3,
+    "SomeBSpecificProperty": 4
+  },
+  {
+    "Type": "C",
+    "SomeSharedProperty": 1030,
+    "SomeBSpecificProperty": 2030,
+    "Tull": {
+      "Type": "A",
+      "SomeSharedProperty": 464,
+      "SomeASpecificProperty": 647
+    }
+  },
+    {
+      "Type": "A",
+      "SomeSharedProperty": 1,
+      "SomeASpecificProperty": 2
+    }
 ]
