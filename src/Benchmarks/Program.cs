@@ -15,22 +15,19 @@ public class Benchmark
 {
     private static readonly JsonSerializerOptions NonPolymorphicJsonSerializerOptions = new()
     {
-        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
     
     private static readonly JsonSerializerOptions BasicPolymorphicJsonSerializerOptions = new()
     {
-        Converters = {new BasicPolymorphicJsonConverter<HierarchyRoot>()},
-        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        Converters = {new BasicPolymorphicJsonConverter<Station>()},
     };
     
     private static readonly JsonSerializerOptions TweakedPolymorphicJsonSerializerOptions = new()
     {
-        Converters = {new TweakedPolymorphicJsonConverter<HierarchyRoot>()},
-        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        Converters = {new TweakedPolymorphicJsonConverter<Station>()},
     };
 
-    private static readonly IReadOnlyCollection<HierarchyRoot> Sample
+    private static readonly IReadOnlyCollection<Station> Sample
         = Enumerable.Range(0, 10000).Select(i => new A()).ToArray();
 
     private static readonly string SerializedSample
@@ -49,16 +46,16 @@ public class Benchmark
         => JsonSerializer.Serialize(Sample, TweakedPolymorphicJsonSerializerOptions);
     
     [Benchmark(Baseline = true), BenchmarkCategory("Deserialization")]
-    public IReadOnlyCollection<HierarchyRoot> NonPolymorphicDeserialization()
+    public IReadOnlyCollection<Station> NonPolymorphicDeserialization()
         => JsonSerializer.Deserialize<IReadOnlyCollection<A>>(SerializedSample, NonPolymorphicJsonSerializerOptions)!;
 
     [Benchmark, BenchmarkCategory("Deserialization")]
-    public IReadOnlyCollection<HierarchyRoot> BasicPolymorphicDeserialization()
-        => JsonSerializer.Deserialize<IReadOnlyCollection<HierarchyRoot>>(SerializedSample, BasicPolymorphicJsonSerializerOptions)!;
+    public IReadOnlyCollection<Station> BasicPolymorphicDeserialization()
+        => JsonSerializer.Deserialize<IReadOnlyCollection<Station>>(SerializedSample, BasicPolymorphicJsonSerializerOptions)!;
     
     [Benchmark, BenchmarkCategory("Deserialization")]
-    public IReadOnlyCollection<HierarchyRoot> TweakedPolymorphicDeserialization()
-        => JsonSerializer.Deserialize<IReadOnlyCollection<HierarchyRoot>>(SerializedSample, TweakedPolymorphicJsonSerializerOptions)!;
+    public IReadOnlyCollection<Station> TweakedPolymorphicDeserialization()
+        => JsonSerializer.Deserialize<IReadOnlyCollection<Station>>(SerializedSample, TweakedPolymorphicJsonSerializerOptions)!;
 
     internal static void DoSanityChecks()
     {

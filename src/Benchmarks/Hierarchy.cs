@@ -2,7 +2,7 @@
 
 namespace Benchmarks;
 
-public abstract record HierarchyRoot : ITypeDiscriminator
+public abstract record Station : ITypeDiscriminator
 {
     public abstract string Type { get; }
 
@@ -39,7 +39,7 @@ public abstract record HierarchyRoot : ITypeDiscriminator
     public string Zz { get; set; } = "zzzzz";
 }
 
-public record A : HierarchyRoot
+public record A : Station
 {
     public override string Type => nameof(A);
 }
