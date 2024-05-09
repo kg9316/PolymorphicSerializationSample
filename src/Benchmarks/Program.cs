@@ -15,19 +15,19 @@ public class Benchmark
 {
     private static readonly JsonSerializerOptions NonPolymorphicJsonSerializerOptions = new()
     {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
     
     private static readonly JsonSerializerOptions BasicPolymorphicJsonSerializerOptions = new()
     {
         Converters = {new BasicPolymorphicJsonConverter<HierarchyRoot>()},
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
     
     private static readonly JsonSerializerOptions TweakedPolymorphicJsonSerializerOptions = new()
     {
         Converters = {new TweakedPolymorphicJsonConverter<HierarchyRoot>()},
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        //PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
 
     private static readonly IReadOnlyCollection<HierarchyRoot> Sample
